@@ -1,17 +1,19 @@
 version: '2'
 services:
-    easyconnect:
-        image: hagb/docker-easyconnect:7.6.7 # latest, vncless, 7.6.3, vncless-7.6.3, 7.6.7, vncless-7.6.7
+    atrust:
+        image: hagb/docker-atrust:chromium
         devices:
           - /dev/net/tun
-        cap_add: 
+        cap_add:
           - NET_ADMIN
         volumes:
-          - $HOME/.ecdata:/root
+          - $HOME/.atrust-data:/root
         environment:
-          - URLWIN=1
-          - PASSWORD=xxxx
+          - CHROMIUM=1
+          - PASSWORD=your_vnc_password
+          - USE_NOVNC=1
         ports:
-          - "127.0.0.1:5901:5901"
-          - "127.0.0.1:1080:1080"
-          - "127.0.0.1:8888:8888"
+          - "0.0.0.0:39901:5901"
+          - "0.0.0.0:39902:8080"
+          - "0.0.0.0:39903:1080"
+          - "0.0.0.0:39904:8888"
