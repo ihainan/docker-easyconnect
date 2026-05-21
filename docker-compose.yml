@@ -10,10 +10,10 @@ services:
           - $HOME/.atrust-data:/root
         environment:
           - CHROMIUM=1
-          - PASSWORD=your_vnc_password
+          - PASSWORD=${VNC_PASSWORD}
           - USE_NOVNC=1
         ports:
-          - "0.0.0.0:39901:5901"
-          - "0.0.0.0:39902:8080"
-          - "0.0.0.0:39903:1080"
-          - "0.0.0.0:39904:8888"
+          - "${BIND_HOST}:39901:5901"
+          - "${BIND_HOST}:39902:8080"
+          - "${BIND_HOST}:39903:1080"
+          - "${BIND_HOST}:39904:8888"
