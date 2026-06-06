@@ -1,7 +1,7 @@
 version: '2'
 services:
     atrust:
-        image: hagb/docker-atrust:chromium
+        image: ihainan/atrust-proxy:chromium
         devices:
           - /dev/net/tun
         cap_add:
